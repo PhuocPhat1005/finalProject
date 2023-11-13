@@ -1,5 +1,7 @@
 import requests
-import json
+import sys
+sys.path.append("../final_project")
+from Entity import SentimentResult
 
 def emotion_detector(text_to_analyse):
     url = 'https://api.uclassify.com/v1/uClassify/Sentiment/classify/'
@@ -9,10 +11,6 @@ def emotion_detector(text_to_analyse):
     })
 
     formatted_response = response.json()
-    positive = formatted_response['positive']
-    negative = formatted_response['negative']
-    if positive >= negative:
-        return ("Happy", positive)
-    else:
-        return ("Sadness", negative)
+    Sentiment = SentimentResult.from_json(formatted_response)
+    return (Sentiment.sentiment, Sentiment.confident)
     

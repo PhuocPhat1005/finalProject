@@ -1,5 +1,8 @@
 import streamlit as st
 import requests
+import sys
+sys.path.append("../final_project")
+from Entity import SentimentResult
 
 # Define a Streamlit app
 def streamlit_app():
@@ -15,7 +18,6 @@ def streamlit_app():
             st.subheader("Analysis Result:")
             st.write(f"{response.json()[0]} : {response.json()[1]}")
             
-            # st.write(f"{response.text[0]} : {response.text[1]}")
         else:
             st.warning("Please enter text to analyze.")
             
