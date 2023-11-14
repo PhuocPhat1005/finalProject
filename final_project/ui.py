@@ -13,7 +13,6 @@ def streamlit_app():
     text_to_analyze = st.text_area("Enter text to analyze:", "")
     if st.button("Analyze Emotion"):
         if text_to_analyze:
-            # Make a request to the Flask backend
             response = requests.get(
                 "http://localhost:5000/emotionDetector",
                 params={"textToAnalyze": text_to_analyze},
