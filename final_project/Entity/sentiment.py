@@ -14,13 +14,4 @@ class SentimentResult:
             if v > max_confident:
                 max_confident = v
                 max_sentiment = k
-            # results.append(cls(k, v))
         return cls(max_sentiment, max_confident)
-        # return results
-    
-# if __name__ == "__main__":
-#     test = {
-#         "happy": 0.65,
-#         "sad": 0.35
-#     }
-#     print(SentimentResult.from_json(test))
